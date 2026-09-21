@@ -9,11 +9,10 @@
 [ext_resource type="AudioStream" uid="uid://dtjqoei6sunm8" path="res://Assets/audio/music/ambient_start_01.mp3" id="5_vu7r0"]
 [ext_resource type="StyleBox" uid="uid://d3a67n8cntpub" path="res://Assets/Styles/Buttons/PressedandHovered.tres" id="6_pg4io"]
 [ext_resource type="Texture2D" uid="uid://dkli8gapvftdk" path="res://Assets/Sprites/essential/dfstartback.png" id="9_062xv"]
-[ext_resource type="Shader" uid="uid://bis4i30sly0vl" path="res://Scenes/ui/menupanel.gdshader" id="10_2jsse"]
-[ext_resource type="Texture2D" uid="uid://dp3uixj6a3lno" path="res://Assets/Sprites/essential/ffffff.png" id="10_ic2nn"]
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_2jsse"]
-shader = ExtResource("10_2jsse")
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hhfpc"]
+bg_color = Color(0.3529412, 0.3529412, 0.3529412, 0.94509804)
+skew = Vector2(0.15, 0)
 
 [node name="Start" type="Control" unique_id=224544571]
 layout_mode = 3
@@ -56,76 +55,6 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(0, 0, 0, 1)
 
-[node name="monpok_map" type="Button" parent="." unique_id=771893402]
-z_index = 10
-layout_mode = 0
-offset_left = 79.0
-offset_top = 280.0
-offset_right = 231.0
-offset_bottom = 306.0
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
-theme_override_styles/normal = ExtResource("5_o3wvq")
-theme_override_styles/pressed = ExtResource("6_pg4io")
-theme_override_styles/hover = ExtResource("6_pg4io")
-text = "M O N P O K _ M A P"
-
-[node name="npc_test" type="Button" parent="." unique_id=867678566]
-z_index = 10
-layout_mode = 0
-offset_left = 81.0
-offset_top = 254.0
-offset_right = 188.0
-offset_bottom = 280.0
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
-theme_override_styles/normal = ExtResource("5_o3wvq")
-theme_override_styles/pressed = ExtResource("6_pg4io")
-theme_override_styles/hover = ExtResource("6_pg4io")
-text = "N P C _ T E S T"
-
-[node name="house_map" type="Button" parent="." unique_id=1172904624]
-z_index = 10
-layout_mode = 0
-offset_left = 81.0
-offset_top = 227.0
-offset_right = 211.0
-offset_bottom = 253.0
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
-theme_override_styles/normal = ExtResource("5_o3wvq")
-theme_override_styles/pressed = ExtResource("6_pg4io")
-theme_override_styles/hover = ExtResource("6_pg4io")
-text = "H O U S E _ M A P"
-
-[node name="Laden" type="Button" parent="." unique_id=98589451]
-z_index = 10
-layout_mode = 0
-offset_left = 78.0
-offset_top = 186.0
-offset_right = 192.0
-offset_bottom = 212.0
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
-theme_override_styles/normal = ExtResource("5_o3wvq")
-theme_override_styles/pressed = ExtResource("6_pg4io")
-theme_override_styles/hover = ExtResource("6_pg4io")
-text = "L O A D"
-
-[node name="Quit" type="Button" parent="." unique_id=767549848]
-z_index = 10
-layout_mode = 0
-offset_left = 79.0
-offset_top = 352.0
-offset_right = 193.0
-offset_bottom = 378.0
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
-theme_override_styles/normal = ExtResource("5_o3wvq")
-theme_override_styles/pressed = ExtResource("6_pg4io")
-theme_override_styles/hover = ExtResource("6_pg4io")
-text = "Q U I T"
-
 [node name="TextureRect" type="TextureRect" parent="." unique_id=2073459437]
 layout_mode = 1
 anchors_preset = 15
@@ -136,19 +65,90 @@ grow_vertical = 2
 mouse_filter = 2
 texture = ExtResource("9_062xv")
 stretch_mode = 6
-metadata/_edit_use_anchors_ = true
 
-[node name="menupanel" type="Polygon2D" parent="." unique_id=1647691194]
-texture_filter = 2
-material = SubResource("ShaderMaterial_2jsse")
-scale = Vector2(6.0115356, 1)
-color = Color(0.3529412, 0.3529412, 0.3529412, 0.94509804)
-antialiased = true
-texture = ExtResource("10_ic2nn")
-polygon = PackedVector2Array(57.55601, 0, 39.761936, 647.99994, 0, 647.99994, 0, 0)
+[node name="Panel" type="Panel" parent="TextureRect" unique_id=338819175]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -184.0
+offset_right = -904.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_hhfpc")
 
-[connection signal="pressed" from="monpok_map" to="." method="_on_monpok_map_pressed"]
-[connection signal="pressed" from="npc_test" to="." method="_on_npc_test_pressed"]
-[connection signal="pressed" from="house_map" to="." method="_on_house_map_pressed"]
-[connection signal="pressed" from="Laden" to="." method="_on_laden_pressed"]
-[connection signal="pressed" from="Quit" to="." method="_on_quit_pressed"]
+[node name="monpok_map" type="Button" parent="TextureRect/Panel" unique_id=771893402]
+z_index = 10
+layout_mode = 0
+offset_left = 265.0
+offset_top = 244.0
+offset_right = 417.0
+offset_bottom = 270.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
+theme_override_styles/normal = ExtResource("5_o3wvq")
+theme_override_styles/pressed = ExtResource("6_pg4io")
+theme_override_styles/hover = ExtResource("6_pg4io")
+text = "M O N P O K _ M A P"
+
+[node name="npc_test" type="Button" parent="TextureRect/Panel" unique_id=867678566]
+z_index = 10
+layout_mode = 0
+offset_left = 267.0
+offset_top = 218.0
+offset_right = 374.0
+offset_bottom = 244.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
+theme_override_styles/normal = ExtResource("5_o3wvq")
+theme_override_styles/pressed = ExtResource("6_pg4io")
+theme_override_styles/hover = ExtResource("6_pg4io")
+text = "N P C _ T E S T"
+
+[node name="house_map" type="Button" parent="TextureRect/Panel" unique_id=1172904624]
+z_index = 10
+layout_mode = 0
+offset_left = 267.0
+offset_top = 192.0
+offset_right = 397.0
+offset_bottom = 218.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
+theme_override_styles/normal = ExtResource("5_o3wvq")
+theme_override_styles/pressed = ExtResource("6_pg4io")
+theme_override_styles/hover = ExtResource("6_pg4io")
+text = "H O U S E _ M A P"
+
+[node name="Laden" type="Button" parent="TextureRect/Panel" unique_id=98589451]
+z_index = 10
+layout_mode = 0
+offset_left = 265.0
+offset_top = 128.0
+offset_right = 379.0
+offset_bottom = 154.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
+theme_override_styles/normal = ExtResource("5_o3wvq")
+theme_override_styles/pressed = ExtResource("6_pg4io")
+theme_override_styles/hover = ExtResource("6_pg4io")
+text = "L O A D"
+
+[node name="Quit" type="Button" parent="TextureRect/Panel" unique_id=767549848]
+z_index = 10
+layout_mode = 0
+offset_left = 265.0
+offset_top = 320.0
+offset_right = 379.0
+offset_bottom = 346.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
+theme_override_styles/normal = ExtResource("5_o3wvq")
+theme_override_styles/pressed = ExtResource("6_pg4io")
+theme_override_styles/hover = ExtResource("6_pg4io")
+text = "Q U I T"
+
+[connection signal="pressed" from="TextureRect/Panel/monpok_map" to="." method="_on_monpok_map_pressed"]
+[connection signal="pressed" from="TextureRect/Panel/npc_test" to="." method="_on_npc_test_pressed"]
+[connection signal="pressed" from="TextureRect/Panel/house_map" to="." method="_on_house_map_pressed"]
+[connection signal="pressed" from="TextureRect/Panel/Laden" to="." method="_on_laden_pressed"]
+[connection signal="pressed" from="TextureRect/Panel/Quit" to="." method="_on_quit_pressed"]
