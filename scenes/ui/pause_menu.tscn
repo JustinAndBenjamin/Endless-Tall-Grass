@@ -3,11 +3,10 @@
 [ext_resource type="Script" uid="uid://hn5ukve8ber5" path="res://script/ui/pause_menu.gd" id="1_emv3i"]
 [ext_resource type="StyleBox" uid="uid://dl16rvfnw7n3k" path="res://Assets/Styles/Buttons/Normal.tres" id="2_k0w1u"]
 [ext_resource type="StyleBox" uid="uid://d3a67n8cntpub" path="res://Assets/Styles/Buttons/PressedandHovered.tres" id="3_1och7"]
-[ext_resource type="Shader" uid="uid://bis4i30sly0vl" path="res://Scenes/ui/menupanel.gdshader" id="4_p1ug2"]
-[ext_resource type="Texture2D" uid="uid://dp3uixj6a3lno" path="res://Assets/Sprites/essential/ffffff.png" id="5_yy58d"]
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_jwth1"]
-shader = ExtResource("4_p1ug2")
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_yy58d"]
+bg_color = Color(0.3529412, 0.3529412, 0.3529412, 0.94509804)
+skew = Vector2(0.15, 0)
 
 [node name="PauseMenu" type="Control" unique_id=448313180]
 layout_mode = 3
@@ -33,22 +32,25 @@ offset_right = 1152.0
 offset_bottom = 648.0
 color = Color(0.27058825, 0.27058825, 0.27058825, 0.60784316)
 
-[node name="menupanel" type="Polygon2D" parent="PauseMenu/Visibility" unique_id=2129102745]
-texture_filter = 2
-material = SubResource("ShaderMaterial_jwth1")
-scale = Vector2(6.0115356, 1)
-color = Color(0.3529412, 0.3529412, 0.3529412, 0.94509804)
-antialiased = true
-texture = ExtResource("5_yy58d")
-polygon = PackedVector2Array(57.55601, 0, 39.761936, 647.99994, 0, 647.99994, 0, 0)
+[node name="Panel" type="Panel" parent="PauseMenu/Visibility" unique_id=1240317367]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -184.0
+offset_right = 208.0
+offset_bottom = 624.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_yy58d")
 
-[node name="Continue" type="Button" parent="PauseMenu/Visibility" unique_id=1414279493]
+[node name="Continue" type="Button" parent="PauseMenu/Visibility/Panel" unique_id=1414279493]
 z_index = 10
 layout_mode = 0
-offset_left = 80.0
-offset_top = 232.0
-offset_right = 232.0
-offset_bottom = 258.0
+offset_left = 248.0
+offset_top = 216.0
+offset_right = 400.0
+offset_bottom = 242.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
 theme_override_styles/normal = ExtResource("2_k0w1u")
@@ -56,13 +58,13 @@ theme_override_styles/pressed = ExtResource("3_1och7")
 theme_override_styles/hover = ExtResource("3_1och7")
 text = "C O N T I N U E"
 
-[node name="BackToMenu" type="Button" parent="PauseMenu/Visibility" unique_id=1833584754]
+[node name="BackToMenu" type="Button" parent="PauseMenu/Visibility/Panel" unique_id=1833584754]
 z_index = 10
 layout_mode = 0
-offset_left = 80.0
-offset_top = 280.0
-offset_right = 232.0
-offset_bottom = 306.0
+offset_left = 248.0
+offset_top = 264.0
+offset_right = 400.0
+offset_bottom = 290.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
 theme_override_styles/normal = ExtResource("2_k0w1u")
@@ -70,13 +72,13 @@ theme_override_styles/pressed = ExtResource("3_1och7")
 theme_override_styles/hover = ExtResource("3_1och7")
 text = "B A C K  T O  M E N U"
 
-[node name="Quit" type="Button" parent="PauseMenu/Visibility" unique_id=1982811273]
+[node name="Quit" type="Button" parent="PauseMenu/Visibility/Panel" unique_id=1982811273]
 z_index = 10
 layout_mode = 0
-offset_left = 80.0
-offset_top = 336.0
-offset_right = 232.0
-offset_bottom = 362.0
+offset_left = 248.0
+offset_top = 320.0
+offset_right = 400.0
+offset_bottom = 346.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
 theme_override_styles/normal = ExtResource("2_k0w1u")
@@ -84,6 +86,6 @@ theme_override_styles/pressed = ExtResource("3_1och7")
 theme_override_styles/hover = ExtResource("3_1och7")
 text = "Q U I T"
 
-[connection signal="pressed" from="PauseMenu/Visibility/Continue" to="." method="_on_continue_pressed"]
-[connection signal="pressed" from="PauseMenu/Visibility/BackToMenu" to="." method="_on_game_menu_pressed"]
-[connection signal="pressed" from="PauseMenu/Visibility/Quit" to="." method="_on_quit_pressed"]
+[connection signal="pressed" from="PauseMenu/Visibility/Panel/Continue" to="." method="_on_continue_pressed"]
+[connection signal="pressed" from="PauseMenu/Visibility/Panel/BackToMenu" to="." method="_on_game_menu_pressed"]
+[connection signal="pressed" from="PauseMenu/Visibility/Panel/Quit" to="." method="_on_quit_pressed"]
