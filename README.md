@@ -37,6 +37,7 @@ Press <kbd>E</kbd> or the <kbd>I</kbd> button top left to open your inventory.
 - *Thanks to CoffeeVampir3 and Facebookresearch (Meta) for:*
   - [Audiocraft WebUI](https://github.com/CoffeeVampir3/audiocraft-webui)
   - [Audiocraft by Meta](https://github.com/facebookresearch/audiocraft)
+- *TTS by VoiceStudio (https://github.com/debpalash/VoiceStudio)*
 
 ***Coding:***
 - **Code:** Benjamin-306 + JustinCase306
